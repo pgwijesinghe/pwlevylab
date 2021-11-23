@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
-pixel_range = [150,400]
+pixel_range = [200,205]
 
 path = "C:\\Users\\Pubudu Wijesinghe\\Desktop\\SLM_VC_Data"
 os.chdir(path)
@@ -23,6 +23,6 @@ flat_data = [item for sublist in data for item in sublist]
 
 fig = plt.figure()
 ax = plt.gca()
-plt.imshow(flat_data)
+plt.imshow(flat_data, interpolation='nearest')
 ax.axes.yaxis.set_visible(False)
 plt.show()
