@@ -2,10 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
-sp_lim = [400, 1000]  # in nm
-plt_xrange = [500,1000]  # in nm 
+sp_lim = [380, 1080]  # in nm
+plt_xrange = [300,1200]  # in nm 
 
-path = "C:\\Users\\pubud\\Desktop\\Spectrum Files"
+path = "C:\\Users\\Ansom\\Desktop\\Spectrum Files\\ps"
 os.chdir(path)
 
 fig = plt.figure()
@@ -21,6 +21,7 @@ for file in os.listdir():
             plt.plot(x_scale, datalist, label=file)
     print("file done")
 
+plt.yscale('log')
 plt.xlim(plt_xrange[0], plt_xrange[1])
 plt.legend()
 plt.show()
