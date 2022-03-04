@@ -26,3 +26,6 @@ ax = plt.gca()
 plt.imshow(flat_data, interpolation='nearest')
 ax.axes.yaxis.set_visible(False)
 plt.show()
+
+# create 2 separate functions to write and read files so that the code doesn't have to process the files everytime it runs
+
