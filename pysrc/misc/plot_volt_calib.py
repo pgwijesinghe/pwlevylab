@@ -4,7 +4,7 @@ import os
 
 pixel_range = [150,400]
 
-path = "C:\\Users\\Pubudu Wijesinghe\\Desktop\\SLM_VC_Data"
+# path = "C:\\Users\\Pubudu Wijesinghe\\Desktop\\SLM_VC_Data"
 os.chdir(path)
 cnt = 0
 data = []
