@@ -7,7 +7,7 @@
 ; Horizontal Scrolling (MB4 + Scroll)
 ; Quickly gather text to a Notepad (Alt + C)
 ; SearchBoxes (Google and YouTube) (Alt + G, Alt + y)
-; Always on top (Ctrl + Space)
+; Always on top (Win + Space)
 ; Hide/Unhide Desktop Icons (F12)
 
 
@@ -124,7 +124,7 @@ return
 ;######################### Always on top ##########################################
 ;----------------------------------------------------------------------------------
 
-^SPACE::  Winset, Alwaysontop, , A
+#SPACE::  Winset, Alwaysontop, , A
 
 
 ;----------------------------------------------------------------------------------------------
