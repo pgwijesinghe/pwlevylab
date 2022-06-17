@@ -24,6 +24,7 @@ Capslock & i::SendInput {Blind}{Up}
 Capslock & l::SendInput {Blind}{Right}
 Capslock & SC027::SendInput {Blind}^{right}
 Capslock & o::SendInput {Backspace}
+^!t::Run wt.exe			   
 
 
 ;---------------------------------------------------------------------------------------------------------
