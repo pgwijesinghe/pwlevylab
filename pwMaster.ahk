@@ -25,7 +25,12 @@ Capslock & l::SendInput {Blind}{Right}
 Capslock & SC027::SendInput {Blind}^{right}
 Capslock & o::SendInput {Backspace}
 ^!t::Run wt.exe			   
-
+Capslock & e::
+sleep 200
+blockinput on
+send {Blind}{LButton}{RButton}7eee{enter}
+blockinput off
+return
 
 ;---------------------------------------------------------------------------------------------------------
 ;######################### Google Quick Search (inside browser) ##########################################
