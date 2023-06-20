@@ -18,7 +18,7 @@ sleep 100
 Send, ^c
 InputBox, Item, Purchase Item, , , 400, 100
 run C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe https://mail.google.com/mail/u/0/?fs=1&to=papurch@pitt.edu&tf=cm
-sleep 3000
+sleep 4000
 Send, LevyLab Purchase Order: %Item%
 Send, {Tab}
 text_send(pre)
