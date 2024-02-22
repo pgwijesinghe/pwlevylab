@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 
-path = "C:\\Users\\Pubudu Wijesinghe\\Desktop\\THz1_TempHum Analysis\\GDrive Data\\New folder\\"
+path = r"G:\.shortcut-targets-by-id\0B8-gGFa6hkR4XzJJMDlqZXVKRk0\ansom\Data\THz 1\Pubudu's Data\THz1_TempHum Analysis\GDrive Data\New folder\\"
 datetime = np.array([])
 temp = np.array([])
 xticks = np.array([])

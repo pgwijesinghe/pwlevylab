@@ -24,7 +24,10 @@ Capslock & i::SendInput {Blind}{Up}
 Capslock & l::SendInput {Blind}{Right}
 Capslock & SC027::SendInput {Blind}^{right}
 Capslock & o::SendInput {Backspace}
-^!t::Run wt.exe			   
+Capslock & f::SendInput {Backspace}
+Capslock & w::AltTab
+^!t::Run wt		
+!j::Run "C:\Tweaks\JumpToFolder_1.0.8_x64\JumpToFolder.lnk"  
 Capslock & e::
 sleep 200
 blockinput on
@@ -125,6 +128,21 @@ return
     }
 return
 
+!a::
+    InputBox, Search, Asana Search, , , 400, 100
+    if not ErrorLevel ; when cancel is not pressed
+    {
+        run C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe https://app.asana.com/0/search?q="%Search%"
+    }
+return
+
+!+a::
+    InputBox, Search, Asana Search: Project, , , 400, 100
+    if not ErrorLevel ; when cancel is not pressed
+    {
+        run C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe https://app.asana.com/0/search?q="%Search%"&type=projects
+    }
+return
 
 ;----------------------------------------------------------------------------------
 ;######################### Always on top ##########################################
@@ -146,5 +164,14 @@ WinHide, ahk_id %HWND%
 Else
 WinShow, ahk_id %HWND%
 Return
+
+;----------------------------------------------------------------------------------------------
+;######################### Script Toggle ##########################################
+;----------------------------------------------------------------------------------------------
+
+F9::
+Suspend
+Return
+
 
 
