@@ -43,7 +43,7 @@ def plot_trajectories(savedir, animate=False):
 
     else:
         for frame in range(2000):
-            datafile = f'trajs\\block_{frame}.txt'
+            datafile = f'{savedir}\\block_{frame}.txt'
             x, y, z = [], [], []
             with open(datafile, 'r') as f:
                 data = f.readlines()

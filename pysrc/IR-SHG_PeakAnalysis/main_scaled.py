@@ -16,7 +16,7 @@ import matplotlib
 matplotlib.style.use('ggplot')
 
 # Set the path to the folder containing the TDMS files
-folder_path = r"C:\Users\PubuduW\Desktop\10 - blue peak analysis"
+folder_path = r"G:\.shortcut-targets-by-id\0B8-gGFa6hkR4XzJJMDlqZXVKRk0\ansom\Data\THz 1\Pubudu's Data\10 - blue peak analysis"
 
 # Create empty lists to store the arrays
 array1 = []
