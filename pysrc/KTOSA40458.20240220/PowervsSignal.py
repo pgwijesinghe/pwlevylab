@@ -11,10 +11,10 @@ import matplotlib
 
 matplotlib.style.use('ggplot')
 
-power = np.array([0.13, 2.36, 4.58, 7.15, 16.51])
-signal = np.array([1.65, 3, 4.4, 5.5, 13.8])
+power = np.array([0.13, 2.36, 4.58, 7.15, 12.5, 16.51])
+signal = np.array([1.65, 3, 4.4, 5.5, 10.2, 13.8])
 
-plt.plot(power, signal, 'ro-')
+plt.plot(power, signal, 'go-')
 plt.xlabel('Power (mW)')
 plt.ylabel('4T Conductance (uS)')
 plt.show()
