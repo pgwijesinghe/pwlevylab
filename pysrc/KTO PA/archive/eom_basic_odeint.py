@@ -4,10 +4,10 @@ import matplotlib.pyplot as plt
 
 # Define parameters
 C = 1/50      # Example value for capacitance
-Z = 50     # Example value for impedance
-L_0 = 50   # Base inductance
-L_p = 0     # Amplitude of inductance oscillation
-omega = 1.0  # Frequency for the sinusoidal functions
+Z = 400        # Example value for impedance
+L_0 = 50      # Base inductance
+L_p = 8       # Amplitude of inductance oscillation
+omega = 1.0   # Frequency for the sinusoidal functions
 
 # Define L(t) as a function of time
 def L(t):
@@ -32,7 +32,7 @@ def circuit_equations(y, t):
 y0 = [0.0, 0.0]
 
 # Time points at which to solve the ODE
-t = np.linspace(0, 10, 1000)
+t = np.linspace(0, 1000, 10000)
 
 # Solve the ODE system
 solution = odeint(circuit_equations, y0, t)
@@ -41,13 +41,35 @@ solution = odeint(circuit_equations, y0, t)
 phi_net = solution[:, 0]
 phi_net_dot = solution[:, 1]
 
-# Plot the results
+# Plot the time-domain results
 plt.figure(figsize=(10, 6))
 plt.plot(t, phi_net, label="phi_net(t)", color="blue")
-plt.plot(t, phi_net_dot, label="phi_net_dot(t)", linestyle="--", color="red")
+# plt.plot(t, phi_net_dot, label="phi_net_dot(t)", linestyle="--", color="red")
 plt.xlabel('Time [s]')
 plt.ylabel('Values')
 plt.title('Simulation of Circuit Dynamics with Time-Varying Inductance and Input')
 plt.legend()
+plt.grid(True)
+plt.show()
+
+# --- Power Spectrum Analysis ---
+
+# Compute the FFT of phi_net(t)
+phi_net_fft = np.fft.fft(phi_net)
+
+# Compute the corresponding frequencies
+n = len(t)                           # Number of sample points
+timestep = t[1] - t[0]               # Time between two consecutive samples
+freq = np.fft.fftfreq(n, d=timestep)  # Frequency components
+
+# Compute the power spectrum (magnitude squared of FFT values)
+power_spectrum = np.abs(phi_net_fft)**2
+
+# Plot the power spectrum (for positive frequencies)
+plt.figure(figsize=(10, 6))
+plt.plot(freq[:n // 2], np.log(power_spectrum[:n // 2]), color='green')  # Plot only positive frequencies
+plt.xlabel('Frequency [Hz]')
+plt.ylabel('Power')
+plt.title('Power Spectrum of phi_net(t)')
 plt.grid(True)
 plt.show()
