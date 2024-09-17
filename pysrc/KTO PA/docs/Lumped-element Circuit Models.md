@@ -11,10 +11,10 @@ This circuit will mainly consist of transmission lines, capacitors and inductors
 
 Starting with a transmission line, considering the input-output conditions;
 $$
-\begin{eqnarray}
+\begin{align}
 I_{net} &=& I_{in}-I_{out} \\
 V_{net} &=& V_{in} + V_{out} \\
-\end{eqnarray}
+\end{align}
 $$
 Considering a superconducting circuit, we can write the phase difference across an inductor loop as follows:
 $$
@@ -37,7 +37,7 @@ This is very similar to Faraday's law of induction. But  this voltage does not 
 Now we'll move on to circuit modeling.
 ### Base Circuit
 
-![[Pasted image 20240910152138.png]]
+![[./assets/Pasted image 20240910152138.png]]
 
 
 This is the circuit proposed in the DARPA report where parametric amplification is realized by varying the Kinetic inductance.
