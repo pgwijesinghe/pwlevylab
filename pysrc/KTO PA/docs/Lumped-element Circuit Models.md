@@ -1,9 +1,5 @@
-## Modelling a simple RLC Circuit
 
-Before modeling the Parametric amplifier, I want to do a test simulation on a conventional RLC circuit, to brush up my memory.
-
-
-## Parametric Amplifier 
+## Parametric Amplifier (Theory Formulation)
 
 In here, I will be solving the circuits classically using equations of motion by modelling the circuit as a lumped-element model. 
 
@@ -37,7 +33,7 @@ This is very similar to Faraday's law of induction. But  this voltage does not 
 Now we'll move on to circuit modeling.
 ### Base Circuit
 
-![[./assets/Pasted image 20240910152138.png]]
+![basic circuit](./assets/circuit_basic.png)
 
 
 This is the circuit proposed in the DARPA report where parametric amplification is realized by varying the Kinetic inductance.
@@ -103,16 +99,12 @@ K\omega(A_{in}+A_{out})cos(\omega t) - \omega^2\frac{L_P}{2L_0}(A_{in}+A_{out})c
 \implies A_{in}[-\frac{K}{\omega} + \frac{L_P}{2L_0} + \frac{2K}{\omega}] &= A_{out}[\frac{K}{\omega} - \frac{L_P}{2L_0}] \\
 \implies G = \frac{A_{out}^2}{A_{in}^2} &\approx\frac{(\frac{2K}{\omega}+\frac{L_P}{L_0})^2}{(\frac{2K}{\omega}-\frac{L_P}{L_0})^2}
 \end{align}
-
 $$
-## Initial Simulation Results
-
-## FFT
 
 
-### Intermediate Circuit
+## Intermediate Circuit
 
-![[Pasted image 20240910141102.png]]
+![circuit_intermediate](./assets/circuit_intermediate.png)
 
 Let $L_1 = L_2 = L$
 
@@ -129,5 +121,4 @@ $$
 C_P(\ddot{\phi_3}-\ddot{\phi_4}) + \frac{\phi_3}{L} + \frac{(\phi_2 - \phi_3)}{L}=0
 \end{equation}
 $$
-
 
