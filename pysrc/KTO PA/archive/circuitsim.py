@@ -16,7 +16,7 @@ omega = 2 * np.pi * 5e9  # Signal frequency (5 GHz)
 def V_s(t):
     return As * np.sin(omega * t)
 
-def V_p(t):
+def V_p(t)->float:
     return Ap * np.sin(2 * omega * t)
 
 # Define the system of differential equations
