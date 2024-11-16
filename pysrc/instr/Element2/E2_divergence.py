@@ -1,3 +1,9 @@
+'''
+Here I'm measuring the divergence of the laser beam. 
+I'm using a beam profiler to measure the beam diameter at different distances from the laser aperture. 
+I'm using the data to calculate the divergence of the beam.
+'''
+
 import numpy as np
 import matplotlib.pyplot as plt
 

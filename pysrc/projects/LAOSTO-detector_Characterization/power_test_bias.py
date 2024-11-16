@@ -9,8 +9,8 @@ import numpy as np
 from scipy.signal import find_peaks
 
 # Set the path to the folder containing the TDMS files
-file_path1 = r"G:\.shortcut-targets-by-id\0B8-gGFa6hkR4XzJJMDlqZXVKRk0\ansom\Data\THz 1\SA40287.20231121\Power Test\E2\SA40287.20231121.000006.tdms"
-file_path2 = r"G:\.shortcut-targets-by-id\0B8-gGFa6hkR4XzJJMDlqZXVKRk0\ansom\Data\THz 1\SA40287.20231121\Power Test\E2\SA40287.20231121.000007.tdms"
+file_path1 = r"G:\.shortcut-targets-by-id\0B8-gGFa6hkR4XzJJMDlqZXVKRk0\ansom\Data\THz 1\zArchive\2023\SA40287.20231121\Power Test\E2\SA40287.20231121.000006.tdms"
+file_path2 = r"G:\.shortcut-targets-by-id\0B8-gGFa6hkR4XzJJMDlqZXVKRk0\ansom\Data\THz 1\zArchive\2023\SA40287.20231121\Power Test\E2\SA40287.20231121.000007.tdms"
 # file_path = r"G:\.shortcut-targets-by-id\0B8-gGFa6hkR4XzJJMDlqZXVKRk0\ansom\Data\THz 1\SA40287.20231121\Power Test\HeNe\SA40287.20231121.000005.tdms"
 
 #05,06
