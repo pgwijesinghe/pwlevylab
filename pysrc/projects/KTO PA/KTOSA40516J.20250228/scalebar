@@ -1,0 +1,88 @@
+from matplotlib.widgets import Slider
+
+# Create the plot
+fig, ax = plt.subplots(figsize=(12, 8))
+plt.subplots_adjust(bottom=0.25)  # Make room for sliders
+
+# Initial vmin and vmax
+vmin_init, vmax_init = -80, 0
+
+# Heatmap
+c = ax.pcolormesh(b_fields, frequencies, log_magnitude_s21.T, cmap="plasma", shading="auto", vmin=vmin_init, vmax=vmax_init)
+fig.colorbar(c, ax=ax, label="|S21| (dB)")
+
+ax.set_xlabel("B field")
+ax.set_ylabel("Frequency (Hz)")
+ax.set_title("Log Magnitude of S21 (dB) Heatmap")
+
+
+# Add sliders for vmin and vmax
+ax_vmin = plt.axes([0.2, 0.1, 0.65, 0.03])
+ax_vmax = plt.axes([0.2, 0.05, 0.65, 0.03])
+
+slider_vmin = Slider(ax_vmin, 'vmin', -120, 0, valinit=vmin_init)
+slider_vmax = Slider(ax_vmax, 'vmax', -120, 0, valinit=vmax_init)
+
+# Update function for sliders
+def update(val):
+    c.set_clim(vmin=slider_vmin.val, vmax=slider_vmax.val)
+    fig.canvas.draw_idle()
+
+slider_vmin.on_changed(update)
+slider_vmax.on_changed(update)
+
+plt.show()
+
+
+
+
+
+
+
+import tkinter as tk
+from tkinter import messagebox
+
+def on_submit():
+    selected_param = param_var.get()
+    filter_data_val = filter_var.get()
+    
+    # For demonstration, printing the selected values
+    print(f"Selected Parameter: {selected_param}")
+    print(f"Filter Data: {filter_data_val}")
+
+    # Show a confirmation message
+    messagebox.showinfo("Input Submitted", f"Selected Parameter: {selected_param}\nFilter Data: {filter_data_val}")
+
+# Create main window
+root = tk.Tk()
+root.title("Data Analysis Input")
+
+# Set the window size
+root.geometry("300x200")
+
+# Parameter selection using radio buttons
+param_var = tk.StringVar(value="P")  # Default value
+
+tk.Label(root, text="Select Parameter:").pack()
+
+param_frame = tk.Frame(root)
+param_frame.pack()
+
+radio_p = tk.Radiobutton(param_frame, text="P", variable=param_var, value="P")
+radio_p.pack(side="left")
+radio_magnet = tk.Radiobutton(param_frame, text="Magnet", variable=param_var, value="Magnet")
+radio_magnet.pack(side="left")
+radio_lockin = tk.Radiobutton(param_frame, text="Lockin Bias", variable=param_var, value="Lockin Bias")
+radio_lockin.pack(side="left")
+
+# Filter Data checkbox
+filter_var = tk.BooleanVar(value=True)  # Default value is checked
+filter_checkbox = tk.Checkbutton(root, text="Filter Data", variable=filter_var)
+filter_checkbox.pack()
+
+# Submit Button
+submit_btn = tk.Button(root, text="Submit", command=on_submit)
+submit_btn.pack(pady=10)
+
+# Run the Tkinter event loop
+root.mainloop()
