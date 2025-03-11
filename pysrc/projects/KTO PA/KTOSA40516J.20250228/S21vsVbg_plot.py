@@ -6,7 +6,7 @@ from tqdm import tqdm
 from scipy.fftpack import fft, ifft, fftfreq
 
 # Path to the folder containing tdms files
-folder_path = r"C:\Users\pubud\Desktop\ktopa_dataanalysis\04-Bg Sweep"
+folder_path = r"C:\Users\PubuduW\Desktop\11-Bg Sweep-20250304T183842Z-001\11-Bg Sweep"
 # Path to the temporary processed data file
 processed_data_file = folder_path + "./processed.npz"
 
@@ -74,10 +74,10 @@ filtered_log_magnitude_s21 = adaptive_fft_filter(log_magnitude_s21)
 
 # Create the heatmap
 fig, ax = plt.subplots(figsize=(12, 8))
-filter_data = True
+filter_data = False
 plot_data = filtered_log_magnitude_s21 if filter_data else log_magnitude_s21
 c = ax.pcolormesh(vg, frequencies, plot_data.T, cmap="plasma", shading="auto", 
-                  vmin=-2, vmax=1
+                #   vmin=-2, vmax=1
                 )
 
 # Labels, title, and colorbar

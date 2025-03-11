@@ -6,7 +6,7 @@ from tqdm import tqdm
 from scipy.fftpack import fft, ifft, fftfreq
 from collections import defaultdict
 
-folder_path = r"C:\Users\PubuduW\Desktop\SA40516T.20250307\04-B power S21"
+folder_path = r"C:\Users\PubuduW\Desktop\SA40516T.20250307\07-Bg Power S21"
 
 def process_tdms_file(file_path):
     tdms_file = TdmsFile.read(file_path)
@@ -15,7 +15,7 @@ def process_tdms_file(file_path):
     frequency = group["frequency"].data
     re_s21 = group["ReS21"].data
     im_s21 = group["ImS21"].data
-    magnet = round(group["Magnet"].data[0], 2)
+    magnet = round(group["Lockin Bias"].data[0], 2)
     power = group["P"].data[0]
     
     magnitude_s21 = np.sqrt(re_s21**2 + im_s21**2)
@@ -70,17 +70,16 @@ for magnet, power_dict in data_by_magnetic_field.items():
 
     magnetic_fields_and_powers[magnet] = min_value
 
-    magnetic_fields_and_powers = dict(sorted(magnetic_fields_and_powers.items()))
 magnetic_fields = list(magnetic_fields_and_powers.keys())
 powers = list(magnetic_fields_and_powers.values())
 print(magnetic_fields)
-idx = [1, 4, 6, 8, 10, 13, 16, 19, 22, 25]
+
 x = magnetic_fields
 y = powers
 plt.figure(figsize=(8, 6))
 plt.plot(x,y, marker='o', linestyle='-', color='b')
-plt.xlabel('Magnetic Field (T)')
-plt.ylabel('min_value corresponding to minimum S21 (dBm)')
-plt.title('min_value vs. Magnetic Field for Minimum S21')
+plt.xlabel('Lockin Bias (V_bg) (V)')
+plt.ylabel('Min_value corresponding to minimum S21 (dBm)')
+plt.title('Min_value vs. V_bg for Minimum S21')
 plt.grid(True)
 plt.show()

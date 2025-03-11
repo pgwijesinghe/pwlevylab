@@ -6,7 +6,7 @@ from tqdm import tqdm
 from scipy.fftpack import fft, ifft, fftfreq
 
 # Path to the folder containing tdms files
-folder_path = r"C:\Users\pubud\Desktop\10-B Power S21-20250304T100447Z-001\p0.6"
+folder_path = r"C:\Users\PubuduW\Desktop\12-Bg Power S21-20250305T132037Z-001\bgneg70"
 # Path to the temporary processed data file
 processed_data_file = folder_path + "./processed1.npz"
 

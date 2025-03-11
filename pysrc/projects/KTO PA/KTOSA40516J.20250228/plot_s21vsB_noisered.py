@@ -6,7 +6,7 @@ from tqdm import tqdm
 from scipy.fftpack import fft, ifft, fftfreq
 
 # Path to the folder containing tdms files
-folder_path = r"./data_zoomed"
+folder_path = r"C:\Users\PubuduW\Desktop\SA40516T.20240228\02-B sweep"
 # Path to the temporary processed data file
 processed_data_file = folder_path + "./processed.npz"
 
@@ -47,7 +47,7 @@ else:
 
 # Adaptive FFT-based filtering
 
-def adaptive_fft_filter(data, prominence_factor=0.01):
+def adaptive_fft_filter(data, prominence_factor=0.05):
     fft_data = fft(data, axis=0)
     freqs = fftfreq(data.shape[0])
     power_spectrum = np.abs(fft_data)
@@ -64,7 +64,7 @@ filtered_log_magnitude_s21 = adaptive_fft_filter(log_magnitude_s21)
 
 # Plot the filtered heatmap
 fig, ax = plt.subplots(figsize=(8, 6))
-c = ax.pcolormesh(b_fields, frequencies, filtered_log_magnitude_s21.T, cmap="copper", shading="auto", vmin=-2, vmax=2) 
+c = ax.pcolormesh(b_fields, frequencies, filtered_log_magnitude_s21.T, cmap="copper", shading="auto") 
 ax.set_xlabel("B field")
 ax.set_ylabel("Frequency (Hz)")
 ax.set_title("Adaptively Filtered Log Magnitude of S21 (dB) Heatmap")

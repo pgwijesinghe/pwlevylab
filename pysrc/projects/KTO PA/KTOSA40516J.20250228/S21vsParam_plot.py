@@ -83,7 +83,7 @@ else:
 
 # Adaptive FFT-based filtering
 
-def adaptive_fft_filter(data, prominence_factor=0.5):
+def adaptive_fft_filter(data, prominence_factor=0.05):
     fft_data = fft(data, axis=0)
     freqs = fftfreq(data.shape[0])
     power_spectrum = np.abs(fft_data)
@@ -102,10 +102,47 @@ filtered_log_magnitude_s21 = adaptive_fft_filter(log_magnitude_s21)
 fig, ax = plt.subplots(figsize=(8, 6))
 
 plot_data = filtered_log_magnitude_s21 if filter_data else log_magnitude_s21
-c = ax.pcolormesh(pars, frequencies, plot_data.T, cmap="plasma", shading="auto") 
+c = ax.pcolormesh(pars, frequencies, plot_data.T, cmap="plasma", shading="auto")
+# ax.set_ylim(0.1e9, 1e9)
 ax.set_xlabel(parameter)
 ax.set_ylabel("Frequency (Hz)")
 ax.set_title("Log Magnitude of S21 (dB) Heatmap")
 fig.colorbar(c, ax=ax, label="|S21| (dB)")
 
 plt.show()
+
+
+# from matplotlib.widgets import Slider
+
+# # Create the plot
+# fig, ax = plt.subplots(figsize=(12, 8))
+# plt.subplots_adjust(bottom=0.25)  # Make room for sliders
+
+# # Initial vmin and vmax
+# vmin_init, vmax_init = -80, 0
+
+# # Heatmap
+# c = ax.pcolormesh(pars, frequencies, log_magnitude_s21.T, cmap="plasma", shading="auto", vmin=vmin_init, vmax=vmax_init)
+# fig.colorbar(c, ax=ax, label="|S21| (dB)")
+
+# ax.set_xlabel("B field")
+# ax.set_ylabel("Frequency (Hz)")
+# ax.set_title("Log Magnitude of S21 (dB) Heatmap")
+
+
+# # Add sliders for vmin and vmax
+# ax_vmin = plt.axes([0.2, 0.1, 0.65, 0.03])
+# ax_vmax = plt.axes([0.2, 0.05, 0.65, 0.03])
+
+# slider_vmin = Slider(ax_vmin, 'vmin', -120, 0, valinit=vmin_init)
+# slider_vmax = Slider(ax_vmax, 'vmax', -120, 0, valinit=vmax_init)
+
+# # Update function for sliders
+# def update(val):
+#     c.set_clim(vmin=slider_vmin.val, vmax=slider_vmax.val)
+#     fig.canvas.draw_idle()
+
+# slider_vmin.on_changed(update)
+# slider_vmax.on_changed(update)
+
+# plt.show()
