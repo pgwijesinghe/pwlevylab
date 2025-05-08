@@ -6,7 +6,7 @@ from tqdm import tqdm
 from scipy.fftpack import fft, ifft, fftfreq
 from collections import defaultdict
 
-folder_path = r"C:\Users\PubuduW\Desktop\SA40516T.20250307\07-Bg Power S21"
+folder_path = r"C:\Users\PubuduW\Desktop\11-S21 vs P vs Vbg"
 
 def process_tdms_file(file_path):
     tdms_file = TdmsFile.read(file_path)
@@ -68,7 +68,7 @@ for magnet, power_dict in data_by_magnetic_field.items():
 
     # print(f"Magnetic Field: {magnet} T, Minimum S21: {min_value:.2f} dB, Power: {min_power} dBm, Frequency: {min_freq:.2f} Hz")
 
-    magnetic_fields_and_powers[magnet] = min_value
+    magnetic_fields_and_powers[magnet] = min_freq
 
 magnetic_fields = list(magnetic_fields_and_powers.keys())
 powers = list(magnetic_fields_and_powers.values())
@@ -79,7 +79,7 @@ y = powers
 plt.figure(figsize=(8, 6))
 plt.plot(x,y, marker='o', linestyle='-', color='b')
 plt.xlabel('Lockin Bias (V_bg) (V)')
-plt.ylabel('Min_value corresponding to minimum S21 (dBm)')
-plt.title('Min_value vs. V_bg for Minimum S21')
+plt.ylabel('Frequency corresponding to minimum S21 (Hz)')
+plt.title('Frequency vs. V_bg for Minimum S21')
 plt.grid(True)
 plt.show()

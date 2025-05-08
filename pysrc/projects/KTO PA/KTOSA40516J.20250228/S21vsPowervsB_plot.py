@@ -6,7 +6,7 @@ from tqdm import tqdm
 from scipy.fftpack import fft, ifft, fftfreq
 from collections import defaultdict
 
-folder_path = r"C:\Users\PubuduW\Desktop\SA40516T.20250307\04-B power S21"
+folder_path = r"C:\Users\PubuduW\Desktop\08-S21 vs P vs. B"
 
 def process_tdms_file(file_path):
     tdms_file = TdmsFile.read(file_path)
@@ -80,7 +80,7 @@ y = powers
 plt.figure(figsize=(8, 6))
 plt.plot(x,y, marker='o', linestyle='-', color='b')
 plt.xlabel('Magnetic Field (T)')
-plt.ylabel('min_value corresponding to minimum S21 (dBm)')
+plt.ylabel('min_value corresponding to minimum S21 (dB)')
 plt.title('min_value vs. Magnetic Field for Minimum S21')
 plt.grid(True)
 plt.show()
