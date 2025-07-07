@@ -1,6 +1,6 @@
 import re
 
-index_file = r"D:\Data\CF900\SA40458.20240606\01 - IV\SA40458.20240606.000000.tdms_index"
+index_file = r"G:\.shortcut-targets-by-id\0B8-gGFa6hkR4XzJJMDlqZXVKRk0\ansom\Data\THz 1\SA40663G.20250403\20250416_IntInsTD_P_0.0018_smallTDrange\SA40663G.20250403.000000.tdms_index"
 # Read the content from the index file
 with open(index_file, 'r') as file:
     data = file.read()

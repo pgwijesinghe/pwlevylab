@@ -11,8 +11,8 @@ import numpy as np
 from scipy.signal import find_peaks
 
 # Set the path to the folder containing the TDMS files
-file_path = r"G:\.shortcut-targets-by-id\0B8-gGFa6hkR4XzJJMDlqZXVKRk0\ansom\Data\THz 1\SA40287.20231121\99\SA40287.20231121.000115.tdms"
-# file_path = r"G:\.shortcut-targets-by-id\0B8-gGFa6hkR4XzJJMDlqZXVKRk0\ansom\Data\THz 1\SA40287.20231121\Int Dependence\SA40287.20231121.000016.tdms"108
+file_path = r"G:\.shortcut-targets-by-id\0B8-gGFa6hkR4XzJJMDlqZXVKRk0\ansom\Data\THz 1\zArchive\2023\SA40287.20231121\99\SA40287.20231121.000115.tdms"
+# file_path = r"G:\.shortcut-targets-by-id\0B8-gGFa6hkR4XzJJMDlqZXVKRk0\ansom\Data\THz 1\zArchive\2023\SA40287.20231121\Int Dependence\SA40287.20231121.000016.tdms"
 
 # Read Data
 with nptdms.TdmsFile(file_path) as tdms_file:
